@@ -1,6 +1,18 @@
 /* Variables */
-$color-one: #ff0;
+$color-one: #ffd434;
 $color-light: #fff;
+$color-middle-light: #f1f1f1;
+$color-dark: #000;
+$color-middle-dark: #555;
+$font-main: 'Alexandria', sans-serif;
+$font-second: 'Noto Serif Bengali', serif;
+$font-logo: 'Carattere', cursive;
+$icon-font-size: 16px;
+$icon-size: 36px;
+$padding-section-vertical: 96px;
+$padding-section: $padding-section-vertical 0 $padding-section-vertical 0;
+$padding-inner-vertical: 72px;
+$padding-mobile-extra: 48px;
 
 /* Global */
 *, *::before, *::after {
@@ -9,35 +21,68 @@ $color-light: #fff;
 
 body {
     margin: 0;
+    width: 100%;
+    font-family: $font-main;
+    text-align: center;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 920px;
+}
+
+.title {
+    font-size: 32px;
+    margin: 0;
+}
+
+.title-subtext {
+    font-family: $font-second;
+    font-style: italic;
+    color: $color-middle-dark;
+    font-size: 14px;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 16px;
 }
 
 .btn {
     display: inline-block;
     background: $color-one;
     color: $color-light;
-    min-width: 160px;
-    margin: 24px auto 0 auto;
+    min-width: 200px;
+    margin: 48px 0 0 0;
     padding: 16px;
     border-radius: 5px;
     font-size: 16px;
-    text-align: center;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* Header */
 .head {
     height: 100vh;
     position: relative;
     background-image: url('https://i.postimg.cc/ZRHMcfNp/top.jpg');
-    background-position: center center;
     background-size: cover;
-    background-attachment: fixed;
+}
+
+.head::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.4;
 }
 
 .head-inner {
     position: absolute;
     width: 100%;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -45,8 +90,140 @@ body {
 
     h1 {
         font-size: 64px;
+        margin: 0;
     }
     h2 {
-        font-size: 32px;
+        font-family: $font-second;
+        font-style: italic;
+        font-size: 36px;
+        margin: 0;
+    }
+}
+
+.nav {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    .logo {
+        display:inline-block;
+        padding-left: 200px;
+        width: 49%;
+        h2 {
+            font-family: $font-logo;
+            margin: 0;
+            font-size: 36px;
+            color: $color-one;
+        }
+    }
+    .menu {
+        display:inline-block;
+        width: 49%;
+        font-size: 16px;
+        padding: 0;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        
+        li {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $color-light;
+        white-space: nowrap;
+        margin-right: 16px;
+        &:hover {
+            color: $color-one;
+        }
+    }
+}
+
+/* Services */
+.services {
+    padding: $padding-section;
+    .services-inner {
+        padding-top: $padding-inner-vertical;
+    }
+    p {
+        color: $color-middle-dark;
+        font-size: 13px;
+        font-family: $font-second;
+        font-weight: 800;
+        text-align: center;
+    }
+    img {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Portfolio */
+.portfolio {
+    background: $color-middle-light;
+    padding: $padding-section;
+    padding-bottom: 64px;
+    .portfolio-inner {
+        padding-top: $padding-inner-vertical;
+        > div {
+            padding-bottom: 48px;
+        }
+    }
+    .tile {
+        margin: 0 auto;
+        width: 270px;
+        height: 270px;
+    }
+    .tile-desc {
+        margin: 0 auto;
+        width: 270px;
+        height: $padding-inner-vertical;
+        background: $color-light;
+        h3 {
+            padding: 16px 0 0 0;
+            margin: 0;
+        }
+    }
+    img {
+        width: 270px;
+        height: 270px;
+        object-fit: cover;
+    }
+}
+
+/* Footer */
+.footer {
+    .container
+    {
+        padding: 36px 0;
+    }
+    p {
+        text-align: left;
+        font-size: 13px;
+        color: $color-middle-dark;
+    }
+    i {
+        font-size: $icon-font-size;
+        color: $color-light;
+        text-align: center;
+        background: $color-dark;
+        width: $icon-size;
+        height: $icon-size;
+        line-height: $icon-size;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    a {
+        font-size: 0;
+    }
+}
+
+/* Media */
+@media (max-width: 767px) {
+    .services-inner p {
+        padding-bottom: $padding-mobile-extra;
     }
 }
